@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Fastify - In-memory free text search</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/landing-page.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Masthead -->
+  <header class="text-center">
+    <div class="overlay"></div>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-11">
+                <div class="card card0 rounded-0">
+                    <div class="row">
+                        <div class="col-md-7 d-md-block d-none p-0 box">
+                          <div class="card rounded-0 border-0 card1" id="bill">
+                            <div class="form-row">
+                              <div class="col-md-10 col-md-9 mb-2 mb-md-0">
+                                <input type="text" class="form-control form-control-lg search-bar" placeholder="Search by name or keywords...">
+                              </div>
+                              <div class="col-md-2">
+                                <button type="submit" class="btn btn-block btn-lg btn-primary">Search</button>
+                              </div>
+                            </div>
+                            <div id="result-container"></div>
+                          </div>
+                        </div>
+                        <div class="col-md-5 col-md-offset-5 col-sm-12 p-4 box">
+                            <div class="contact-form ml-auto">
+                              <h2>Add/Update Details</h2>
+                              <form method="post" action="/" >
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="fname" placeholder="Enter First Name" name="fname">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" name="lname">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="5" name="description" id="description">Enter Description</textarea>
+                                </div>
+                                <div class="form-group">
+                                  <div class="col-md-12"> <input type="submit" value="Save Details" class="btn btn-info"> </div>
+                                </div>
+                              </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <!-- Icons Grid -->
+  <section class="features-icons bg-light text-center">
+    <div class="container">
+      <div class="row">
+        <% users.forEach((user) => { %>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <h3><%= user.fname %> <%= user.lname %></h3>
+            <small><%= user.email %></small>
+            <p class="lead mb-0"><%= user.description %></p>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+    $(document).ready(function() {
+
+      function debounce(func, wait, immediate) {
+        var timeout;
+        return function executedFunction() {
+          var context = this;
+          var args = arguments;
+          var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+          };
+          var callNow = immediate && !timeout;
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+          if (callNow) func.apply(context, args);
+        };
+      };
+      var returnedFunction = debounce(function() {
+          // The function's code
+          var template = '';
+          $.get("/search", { q: $('input.search-bar').val() }, function (response) {
+            response.forEach(data => {
+              template += `<div class="row">
+                  <div class="col-lg-7 col-8 mt-4 line pl-4">
+                      <h2 class="bill-head">${data.fname} ${data.lname}</h2> <small class="bill-date">${data.email}</small>
+                  </div>
+                  <div class="col-lg-5 col-4 mt-4 text-white">
+                    <p class="lead mb-0">${data.description}</p>
+                  </div>
+              </div>`;
+            });
+            $('#result-container').html(template);
+          });
+      }, 250);
+
+      $('input.search-bar').on('keyup', returnedFunction);
+    });
+  </script>
+</body>
+
+</html>

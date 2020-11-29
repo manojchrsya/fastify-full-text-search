@@ -1,0 +1,262 @@
+/*!
+ * Start Bootstrap - Landing Page v5.0.9 (https://startbootstrap.com/theme/landing-page)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-landing-page/blob/master/LICENSE)
+ */
+
+body {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+
+header.masthead {
+  position: relative;
+  background-color: #343a40;
+  background: url("../img/bg-masthead.jpg") no-repeat center center;
+  background-size: cover;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+header.masthead .overlay {
+  position: absolute;
+  background-color: #212529;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+}
+
+header.masthead h1 {
+  font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+  header.masthead {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+  }
+  header.masthead h1 {
+    font-size: 3rem;
+  }
+}
+
+.showcase .showcase-text {
+  padding: 3rem;
+}
+
+.showcase .showcase-img {
+  min-height: 30rem;
+  background-size: cover;
+}
+
+@media (min-width: 768px) {
+  .showcase .showcase-text {
+    padding: 7rem;
+  }
+}
+
+.features-icons {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.features-icons .features-icons-item {
+  max-width: 20rem;
+}
+
+.features-icons .features-icons-item .features-icons-icon {
+  height: 7rem;
+}
+
+.features-icons .features-icons-item .features-icons-icon i {
+  font-size: 4.5rem;
+}
+
+.features-icons .features-icons-item:hover .features-icons-icon i {
+  font-size: 5rem;
+}
+
+.testimonials {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.testimonials .testimonial-item {
+  max-width: 18rem;
+}
+
+.testimonials .testimonial-item img {
+  max-width: 12rem;
+  box-shadow: 0px 5px 5px 0px #adb5bd;
+}
+
+.call-to-action {
+  position: relative;
+  background-color: #343a40;
+  background: url("../img/bg-masthead.jpg") no-repeat center center;
+  background-size: cover;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.call-to-action .overlay {
+  position: absolute;
+  background-color: #212529;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+}
+
+footer.footer {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.card0 {
+  margin: 40px 12px 15px 12px;
+  border: 0
+}
+
+.card1 {
+  margin: 0;
+  padding: 15px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background: #263238;
+  height: 100%
+}
+
+.bill-head {
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-size: 30px
+}
+
+.line {
+  border-right: 1px grey solid
+}
+
+.bill-date {
+  color: #BDBDBD
+}
+
+.red-bg {
+  margin-top: 25px;
+  margin-left: 0px;
+  margin-right: 0px;
+  background-color: #F44336;
+  padding-left: 20px !important;
+  padding: 25px 10px 25px 15px
+}
+
+#total {
+  margin-top: 0px;
+  padding-left: 7px
+}
+
+#total-label {
+  margin-bottom: 0px;
+  color: #ffffff;
+  padding-left: 7px
+}
+
+#heading1 {
+  color: #ffffff;
+  font-size: 20px;
+  padding-left: 10px
+}
+
+#heading2 {
+  font-size: 27px;
+  color: #D50000
+}
+
+.placeicon {
+  font-family: fontawesome !important
+}
+
+.card2 {
+  padding: 25px;
+  margin: 0;
+  height: 100%
+}
+
+.form-card .pay {
+  font-weight: bold
+}
+
+.form-card input,
+.form-card textarea {
+  padding: 10px 8px 10px 8px;
+  border: none;
+  border: 1px solid lightgrey;
+  border-radius: 0px;
+  margin-bottom: 25px;
+  margin-top: 2px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #2C3E50;
+  font-size: 14px;
+  letter-spacing: 1px
+}
+
+.form-card input:focus,
+.form-card textarea:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: none;
+  font-weight: bold;
+  border: 1px solid gray;
+  outline-width: 0
+}
+
+.btn-info {
+  color: #ffffff !important
+}
+
+.radio-group {
+  position: relative;
+  margin-bottom: 25px
+}
+
+.radio {
+  display: inline-block;
+  width: 204;
+  height: 64;
+  border-radius: 0;
+  background: lightblue;
+  box-sizing: border-box;
+  border: 2px solid lightgrey;
+  cursor: pointer;
+  margin: 8px 25px 8px 0px
+}
+
+.radio:hover {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2)
+}
+
+.radio.selected {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.4)
+}
+
+.fit-image {
+  width: 100%;
+  object-fit: cover
+}
